@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wanbang.youyibang.mapper.BdyUserMapper" >
+  <resultMap id="BaseResultMap" type="com.wanbang.youyibang.po.BdyUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="truename" property="truename" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="SMALLINT" />
+    <result column="birthday" property="birthday" jdbcType="VARCHAR" />
+    <result column="user_tel" property="userTel" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="token" property="token" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="INTEGER" />
+    <result column="update_time" property="updateTime" jdbcType="INTEGER" />
+    <result column="drug_store_id" property="drugStoreId" jdbcType="INTEGER" />
+    <result column="audit_status" property="auditStatus" jdbcType="SMALLINT" />
+    <result column="audit_reason" property="auditReason" jdbcType="VARCHAR" />
+    <result column="audit_time" property="auditTime" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="SMALLINT" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="idcard_reverse" property="idcardReverse" jdbcType="VARCHAR" />
+    <result column="idcard_positive" property="idcardPositive" jdbcType="VARCHAR" />
+    <result column="has_rp" property="hasRp" jdbcType="INTEGER" />
+    <result column="has_patient_manage" property="hasPatientManage" jdbcType="INTEGER" />
+    <result column="unionid" property="unionid" jdbcType="VARCHAR" />
+    <result column="pharmacist" property="pharmacist" jdbcType="TINYINT" />
+    <result column="pharmacist_img" property="pharmacistImg" jdbcType="VARCHAR" />
+    <result column="pharmacist_sign_img" property="pharmacistSignImg" jdbcType="VARCHAR" />
+    <result column="b_integral" property="bIntegral" jdbcType="INTEGER" />
+    <result column="ecm_mall_user_id" property="ecmMallUserId" jdbcType="INTEGER" />
+    <result column="is_edit" property="isEdit" jdbcType="SMALLINT" />
+    <result column="rong_cloud_token" property="rongCloudToken" jdbcType="VARCHAR" />
+    <result column="manage_status" property="manageStatus" jdbcType="INTEGER" />
+    <result column="update_version" property="updateVersion" jdbcType="INTEGER" />
+    <result column="balance" property="balance" jdbcType="INTEGER" />
+    <result column="check_rp_notify_start" property="checkRpNotifyStart" jdbcType="VARCHAR" />
+    <result column="check_rp_notify_end" property="checkRpNotifyEnd" jdbcType="VARCHAR" />
+    <result column="is_check_rp_notify_open" property="isCheckRpNotifyOpen" jdbcType="TINYINT" />
+    <result column="primary_scdm_no" property="primaryScdmNo" jdbcType="CHAR" />
+    <result column="primary_scdm_time" property="primaryScdmTime" jdbcType="DATE" />
+    <result column="middle_scdm_no" property="middleScdmNo" jdbcType="CHAR" />
+    <result column="middle_scdm_time" property="middleScdmTime" jdbcType="DATE" />
+    <result column="reg_source" property="regSource" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, truename, sex, birthday, user_tel, openid, token, create_time, update_time, drug_store_id, 
+    audit_status, audit_reason, audit_time, is_del, position, idcard_reverse, idcard_positive, 
+    has_rp, has_patient_manage, unionid, pharmacist, pharmacist_img, pharmacist_sign_img, 
+    b_integral, ecm_mall_user_id, is_edit, rong_cloud_token, manage_status, update_version, 
+    balance, check_rp_notify_start, check_rp_notify_end, is_check_rp_notify_open, primary_scdm_no, 
+    primary_scdm_time, middle_scdm_no, middle_scdm_time, reg_source
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wbcms.`tp_bdy_user`
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wbcms.`tp_bdy_user`
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wanbang.youyibang.po.BdyUser" >
+    insert into wbcms.`tp_bdy_user` (id, truename, sex,
+      birthday, user_tel, openid, 
+      token, create_time, update_time, 
+      drug_store_id, audit_status, audit_reason, 
+      audit_time, is_del, position, 
+      idcard_reverse, idcard_positive, has_rp, 
+      has_patient_manage, unionid, pharmacist, 
+      pharmacist_img, pharmacist_sign_img, b_integral, 
+      ecm_mall_user_id, is_edit, rong_cloud_token, 
+      manage_status, update_version, balance, 
+      check_rp_notify_start, check_rp_notify_end, is_check_rp_notify_open, 
+      primary_scdm_no, primary_scdm_time, middle_scdm_no, 
+      middle_scdm_time, reg_source)
+    values (#{id,jdbcType=INTEGER}, #{truename,jdbcType=VARCHAR}, #{sex,jdbcType=SMALLINT}, 
+      #{birthday,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
+      #{token,jdbcType=VARCHAR}, #{createTime,jdbcType=INTEGER}, #{updateTime,jdbcType=INTEGER}, 
+      #{drugStoreId,jdbcType=INTEGER}, #{auditStatus,jdbcType=SMALLINT}, #{auditReason,jdbcType=VARCHAR}, 
+      #{auditTime,jdbcType=INTEGER}, #{isDel,jdbcType=SMALLINT}, #{position,jdbcType=VARCHAR}, 
+      #{idcardReverse,jdbcType=VARCHAR}, #{idcardPositive,jdbcType=VARCHAR}, #{hasRp,jdbcType=INTEGER}, 
+      #{hasPatientManage,jdbcType=INTEGER}, #{unionid,jdbcType=VARCHAR}, #{pharmacist,jdbcType=TINYINT}, 
+      #{pharmacistImg,jdbcType=VARCHAR}, #{pharmacistSignImg,jdbcType=VARCHAR}, #{bIntegral,jdbcType=INTEGER}, 
+      #{ecmMallUserId,jdbcType=INTEGER}, #{isEdit,jdbcType=SMALLINT}, #{rongCloudToken,jdbcType=VARCHAR}, 
+      #{manageStatus,jdbcType=INTEGER}, #{updateVersion,jdbcType=INTEGER}, #{balance,jdbcType=INTEGER}, 
+      #{checkRpNotifyStart,jdbcType=VARCHAR}, #{checkRpNotifyEnd,jdbcType=VARCHAR}, #{isCheckRpNotifyOpen,jdbcType=TINYINT}, 
+      #{primaryScdmNo,jdbcType=CHAR}, #{primaryScdmTime,jdbcType=DATE}, #{middleScdmNo,jdbcType=CHAR}, 
+      #{middleScdmTime,jdbcType=DATE}, #{regSource,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wanbang.youyibang.po.BdyUser" >
+    insert into wbcms.`tp_bdy_user`
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="truename != null" >
+        truename,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="userTel != null" >
+        user_tel,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="token != null" >
+        token,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="drugStoreId != null" >
+        drug_store_id,
+      </if>
+      <if test="auditStatus != null" >
+        audit_status,
+      </if>
+      <if test="auditReason != null" >
+        audit_reason,
+      </if>
+      <if test="auditTime != null" >
+        audit_time,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="idcardReverse != null" >
+        idcard_reverse,
+      </if>
+      <if test="idcardPositive != null" >
+        idcard_positive,
+      </if>
+      <if test="hasRp != null" >
+        has_rp,
+      </if>
+      <if test="hasPatientManage != null" >
+        has_patient_manage,
+      </if>
+      <if test="unionid != null" >
+        unionid,
+      </if>
+      <if test="pharmacist != null" >
+        pharmacist,
+      </if>
+      <if test="pharmacistImg != null" >
+        pharmacist_img,
+      </if>
+      <if test="pharmacistSignImg != null" >
+        pharmacist_sign_img,
+      </if>
+      <if test="bIntegral != null" >
+        b_integral,
+      </if>
+      <if test="ecmMallUserId != null" >
+        ecm_mall_user_id,
+      </if>
+      <if test="isEdit != null" >
+        is_edit,
+      </if>
+      <if test="rongCloudToken != null" >
+        rong_cloud_token,
+      </if>
+      <if test="manageStatus != null" >
+        manage_status,
+      </if>
+      <if test="updateVersion != null" >
+        update_version,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="checkRpNotifyStart != null" >
+        check_rp_notify_start,
+      </if>
+      <if test="checkRpNotifyEnd != null" >
+        check_rp_notify_end,
+      </if>
+      <if test="isCheckRpNotifyOpen != null" >
+        is_check_rp_notify_open,
+      </if>
+      <if test="primaryScdmNo != null" >
+        primary_scdm_no,
+      </if>
+      <if test="primaryScdmTime != null" >
+        primary_scdm_time,
+      </if>
+      <if test="middleScdmNo != null" >
+        middle_scdm_no,
+      </if>
+      <if test="middleScdmTime != null" >
+        middle_scdm_time,
+      </if>
+      <if test="regSource != null" >
+        reg_source,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="truename != null" >
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null" >
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="drugStoreId != null" >
+        #{drugStoreId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="auditReason != null" >
+        #{auditReason,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        #{auditTime,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=SMALLINT},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardReverse != null" >
+        #{idcardReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPositive != null" >
+        #{idcardPositive,jdbcType=VARCHAR},
+      </if>
+      <if test="hasRp != null" >
+        #{hasRp,jdbcType=INTEGER},
+      </if>
+      <if test="hasPatientManage != null" >
+        #{hasPatientManage,jdbcType=INTEGER},
+      </if>
+      <if test="unionid != null" >
+        #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacist != null" >
+        #{pharmacist,jdbcType=TINYINT},
+      </if>
+      <if test="pharmacistImg != null" >
+        #{pharmacistImg,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacistSignImg != null" >
+        #{pharmacistSignImg,jdbcType=VARCHAR},
+      </if>
+      <if test="bIntegral != null" >
+        #{bIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="ecmMallUserId != null" >
+        #{ecmMallUserId,jdbcType=INTEGER},
+      </if>
+      <if test="isEdit != null" >
+        #{isEdit,jdbcType=SMALLINT},
+      </if>
+      <if test="rongCloudToken != null" >
+        #{rongCloudToken,jdbcType=VARCHAR},
+      </if>
+      <if test="manageStatus != null" >
+        #{manageStatus,jdbcType=INTEGER},
+      </if>
+      <if test="updateVersion != null" >
+        #{updateVersion,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=INTEGER},
+      </if>
+      <if test="checkRpNotifyStart != null" >
+        #{checkRpNotifyStart,jdbcType=VARCHAR},
+      </if>
+      <if test="checkRpNotifyEnd != null" >
+        #{checkRpNotifyEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheckRpNotifyOpen != null" >
+        #{isCheckRpNotifyOpen,jdbcType=TINYINT},
+      </if>
+      <if test="primaryScdmNo != null" >
+        #{primaryScdmNo,jdbcType=CHAR},
+      </if>
+      <if test="primaryScdmTime != null" >
+        #{primaryScdmTime,jdbcType=DATE},
+      </if>
+      <if test="middleScdmNo != null" >
+        #{middleScdmNo,jdbcType=CHAR},
+      </if>
+      <if test="middleScdmTime != null" >
+        #{middleScdmTime,jdbcType=DATE},
+      </if>
+      <if test="regSource != null" >
+        #{regSource,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wanbang.youyibang.po.BdyUser" >
+    update wbcms.`tp_bdy_user`
+    <set >
+      <if test="truename != null" >
+        truename = #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=SMALLINT},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null" >
+        user_tel = #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="token != null" >
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="drugStoreId != null" >
+        drug_store_id = #{drugStoreId,jdbcType=INTEGER},
+      </if>
+      <if test="auditStatus != null" >
+        audit_status = #{auditStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="auditReason != null" >
+        audit_reason = #{auditReason,jdbcType=VARCHAR},
+      </if>
+      <if test="auditTime != null" >
+        audit_time = #{auditTime,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=SMALLINT},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardReverse != null" >
+        idcard_reverse = #{idcardReverse,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardPositive != null" >
+        idcard_positive = #{idcardPositive,jdbcType=VARCHAR},
+      </if>
+      <if test="hasRp != null" >
+        has_rp = #{hasRp,jdbcType=INTEGER},
+      </if>
+      <if test="hasPatientManage != null" >
+        has_patient_manage = #{hasPatientManage,jdbcType=INTEGER},
+      </if>
+      <if test="unionid != null" >
+        unionid = #{unionid,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacist != null" >
+        pharmacist = #{pharmacist,jdbcType=TINYINT},
+      </if>
+      <if test="pharmacistImg != null" >
+        pharmacist_img = #{pharmacistImg,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacistSignImg != null" >
+        pharmacist_sign_img = #{pharmacistSignImg,jdbcType=VARCHAR},
+      </if>
+      <if test="bIntegral != null" >
+        b_integral = #{bIntegral,jdbcType=INTEGER},
+      </if>
+      <if test="ecmMallUserId != null" >
+        ecm_mall_user_id = #{ecmMallUserId,jdbcType=INTEGER},
+      </if>
+      <if test="isEdit != null" >
+        is_edit = #{isEdit,jdbcType=SMALLINT},
+      </if>
+      <if test="rongCloudToken != null" >
+        rong_cloud_token = #{rongCloudToken,jdbcType=VARCHAR},
+      </if>
+      <if test="manageStatus != null" >
+        manage_status = #{manageStatus,jdbcType=INTEGER},
+      </if>
+      <if test="updateVersion != null" >
+        update_version = #{updateVersion,jdbcType=INTEGER},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=INTEGER},
+      </if>
+      <if test="checkRpNotifyStart != null" >
+        check_rp_notify_start = #{checkRpNotifyStart,jdbcType=VARCHAR},
+      </if>
+      <if test="checkRpNotifyEnd != null" >
+        check_rp_notify_end = #{checkRpNotifyEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="isCheckRpNotifyOpen != null" >
+        is_check_rp_notify_open = #{isCheckRpNotifyOpen,jdbcType=TINYINT},
+      </if>
+      <if test="primaryScdmNo != null" >
+        primary_scdm_no = #{primaryScdmNo,jdbcType=CHAR},
+      </if>
+      <if test="primaryScdmTime != null" >
+        primary_scdm_time = #{primaryScdmTime,jdbcType=DATE},
+      </if>
+      <if test="middleScdmNo != null" >
+        middle_scdm_no = #{middleScdmNo,jdbcType=CHAR},
+      </if>
+      <if test="middleScdmTime != null" >
+        middle_scdm_time = #{middleScdmTime,jdbcType=DATE},
+      </if>
+      <if test="regSource != null" >
+        reg_source = #{regSource,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wanbang.youyibang.po.BdyUser" >
+    update wbcms.`tp_bdy_user`
+    set truename = #{truename,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=SMALLINT},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      user_tel = #{userTel,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      token = #{token,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      drug_store_id = #{drugStoreId,jdbcType=INTEGER},
+      audit_status = #{auditStatus,jdbcType=SMALLINT},
+      audit_reason = #{auditReason,jdbcType=VARCHAR},
+      audit_time = #{auditTime,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=SMALLINT},
+      position = #{position,jdbcType=VARCHAR},
+      idcard_reverse = #{idcardReverse,jdbcType=VARCHAR},
+      idcard_positive = #{idcardPositive,jdbcType=VARCHAR},
+      has_rp = #{hasRp,jdbcType=INTEGER},
+      has_patient_manage = #{hasPatientManage,jdbcType=INTEGER},
+      unionid = #{unionid,jdbcType=VARCHAR},
+      pharmacist = #{pharmacist,jdbcType=TINYINT},
+      pharmacist_img = #{pharmacistImg,jdbcType=VARCHAR},
+      pharmacist_sign_img = #{pharmacistSignImg,jdbcType=VARCHAR},
+      b_integral = #{bIntegral,jdbcType=INTEGER},
+      ecm_mall_user_id = #{ecmMallUserId,jdbcType=INTEGER},
+      is_edit = #{isEdit,jdbcType=SMALLINT},
+      rong_cloud_token = #{rongCloudToken,jdbcType=VARCHAR},
+      manage_status = #{manageStatus,jdbcType=INTEGER},
+      update_version = #{updateVersion,jdbcType=INTEGER},
+      balance = #{balance,jdbcType=INTEGER},
+      check_rp_notify_start = #{checkRpNotifyStart,jdbcType=VARCHAR},
+      check_rp_notify_end = #{checkRpNotifyEnd,jdbcType=VARCHAR},
+      is_check_rp_notify_open = #{isCheckRpNotifyOpen,jdbcType=TINYINT},
+      primary_scdm_no = #{primaryScdmNo,jdbcType=CHAR},
+      primary_scdm_time = #{primaryScdmTime,jdbcType=DATE},
+      middle_scdm_no = #{middleScdmNo,jdbcType=CHAR},
+      middle_scdm_time = #{middleScdmTime,jdbcType=DATE},
+      reg_source = #{regSource,jdbcType=TINYINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<!--  <select id="selectUserTel" resultType="com.wanbang.youyibang.po.BdyUser">-->
+<!--    SELECT-->
+<!--        user_tel-->
+<!--    FROM-->
+<!--        wbcms.`tp_bdy_user`-->
+<!--    WHERE-->
+<!--        id = 1-->
+<!--  </select>-->
+
+</mapper>
